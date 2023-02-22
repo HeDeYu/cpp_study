@@ -1,7 +1,6 @@
-#include <iostream>
-#include <chrono>
+#include "std_chrono.h"
 
-int main()
+void test_chrono()
 {
 	using namespace std::chrono;
 	//3600s = 1h
@@ -57,5 +56,5 @@ int main()
 	auto td_1_us = duration_cast<duration<double, std::ratio<1, 1000000>>>(td_1);
 	std::cout << td_1.count() << "? = " << td_1_ms.count() << "ms = " << td_1_us.count() << "us" << std::endl;
 
-	return 0;
+	return;
 }
