@@ -24,12 +24,18 @@
     <ClCompile Include="std_ratio.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="new_delete.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="std_chrono.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="std_ratio.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="new_delete.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
