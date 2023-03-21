@@ -105,9 +105,11 @@
   <ItemGroup>
     <ClCompile Include="main.cpp" />
     <ClCompile Include="std_chrono.cpp" />
+    <ClCompile Include="std_ratio.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="std_chrono.h" />
+    <ClInclude Include="std_ratio.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
