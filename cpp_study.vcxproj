@@ -101,14 +101,21 @@
     <Link>
       <SubSystem>Console</SubSystem>
     </Link>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="assembly.cpp" />
+    <ClCompile Include="class_for_new_delete.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="new_delete.cpp" />
     <ClCompile Include="std_chrono.cpp" />
     <ClCompile Include="std_ratio.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="assembly.h" />
+    <ClInclude Include="class_for_new_delete.h" />
     <ClInclude Include="new_delete.h" />
     <ClInclude Include="std_chrono.h" />
     <ClInclude Include="std_ratio.h" />

@@ -1,4 +1,5 @@
 #include "new_delete.h"
+#include "class_for_new_delete.h"
 
 struct MyStructWithoutDestruction
 {
@@ -18,6 +19,8 @@ class MyClassWithoutDestruction
 private:
 	int x;
 	double y;
+public:
+	MyClassWithoutDestruction() {};
 };
 
 class MyClassWithDestruction
@@ -26,14 +29,14 @@ private:
 	int x;
 	double y;
 public:
-	//~MyClassWithDestruction() = default;
-	~MyClassWithDestruction() {};
+	MyClassWithDestruction() { std::cout << "construct" << std::endl;  };
+	~MyClassWithDestruction() { std::cout << "destruct" << std::endl; };
 };
 
-void test_new_delete()
+void test_new_delete_2()
 {
 	std::cout << std::endl << "built-in dt" << std::endl;
-
+	
 	auto p = new double[8];
 	std::cout << _msize(p) << std::endl; // 8 * 8 = 64 bytes
 	std::cout << *(size_t*)((char*)p - 8) << std::endl; // garbage value
@@ -67,15 +70,31 @@ void test_new_delete()
 	std::cout << *(size_t*)((char*)p31 - 8) << std::endl; // garbage value
 	delete[] p31;
 
-	std::cout << std::endl << "Class without explicit destruction" << std::endl;
+	std::cout << std::endl << "Class with explicit destruction" << std::endl;
 
-	num = 15;
+	num = 5;
 	auto p32 = new MyClassWithDestruction[num];
 	//std::cout << _msize(p32) << std::endl; // will cause runtime error
 	//8 bytes to restore the number of elements in the array for 64-bit system
 	//(presume) 4 bytes to restore that for 32-bit system
-	std::cout << *(size_t*)((char*)p32 - 8) << std::endl; // should equal to num.
+	auto ptr_to_len = (size_t*)((char*)p32 - 8);
+	std::cout << *ptr_to_len << std::endl; // should equal to num.
+	(*ptr_to_len)++;
 	delete[] p32;
 
 	return;
+}
+
+void test_new_delete()
+{
+	auto pi = new int;
+	*pi = 16;
+	delete pi;
+	MyClass* pmc = new MyClass();
+	delete pmc;
+
+	auto pmcv = new MyClass[5];
+	delete[] pmcv;
+	pmcv = nullptr;
+	int a = 10;
 }
